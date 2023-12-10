@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: valhalla-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: valhalla
+  template:
+    metadata:
+      labels:
+        app: valhalla
+    spec:
+      containers:
+      - name: valhalla-container
+        image: 123519796183.dkr.ecr.ap-south-1.amazonaws.com/valhalla-server  # Replaced with my  ECR URL
+        ports:
+        - containerPort: 8002
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: valhalla-service
+spec:
+  selector:
+    app: valhalla
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8002
+  type: LoadBalancer
+
