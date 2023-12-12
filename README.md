@@ -34,15 +34,13 @@ terraform apply
 # Docker Configuration
 1.	Navigate to the root directory.
 2.	Open the Dockerfile and ensure that the required dependencies and Valhalla server configurations are set correctly.
-3.	Build the Docker image:
-
+3.	Build the Docker image
 docker build -t valhalla-server .
 
 # Kubernetes Deployment
 1.	Navigate to the kubernetes directory.
 2.	Open valhalla-deployment.yaml and update the image URL with your ECR URL.
 3.	Apply the Kubernetes configuration:
-
 kubectl apply -f valhalla-deployment.yaml
 4.	Ensure that the Valhalla pods are running:
 kubectl get pods
