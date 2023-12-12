@@ -35,12 +35,14 @@ terraform apply
 1.	Navigate to the root directory.
 2.	Open the Dockerfile and ensure that the required dependencies and Valhalla server configurations are set correctly.
 3.	Build the Docker image:
+
 docker build -t valhalla-server .
 
 # Kubernetes Deployment
 1.	Navigate to the kubernetes directory.
 2.	Open valhalla-deployment.yaml and update the image URL with your ECR URL.
 3.	Apply the Kubernetes configuration:
+
 kubectl apply -f valhalla-deployment.yaml
 4.	Ensure that the Valhalla pods are running:
 kubectl get pods
@@ -52,11 +54,13 @@ Networking and Security
 
 # Testing and Accessibility
 1.	Perform load testing using a tool like Apache Benchmark:
+
 ab -n 1000 -c 10 http://<LoadBalancer-Public-DNS>/route-service
 2.	Verify accessibility by accessing the public URL of the Load Balancer in a web browser.
 Bonus Tasks
 
 # Monitoring and Logging
 •	Implement monitoring using Prometheus and Grafana. Configure container logging to AWS CloudWatch.
-Scalability Plan
+
+**Scalability Plan**
 •	Describe your scalability plan considering auto-scaling groups, database optimization, and caching strategies.
